@@ -35,3 +35,6 @@ build/
 
 #frontend compiled resources
 /src/main/resources/dist*
+
+#database connection secrets
+/src/main/resources/jdbc-connection.properties
