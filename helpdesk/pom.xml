@@ -8,11 +8,11 @@
 		<version>2.5.2</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.ivsystems</groupId>
-	<artifactId>helpdesk</artifactId>
+	<groupId>com.csfaubion</groupId>
+	<artifactId>bugtracker</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>helpdesk</name>
-	<description>helpdesk application </description>
+	<name>bugtracker</name>
+	<description>bugtracker application </description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>
