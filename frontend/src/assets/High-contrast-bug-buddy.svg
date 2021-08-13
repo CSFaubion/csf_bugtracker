@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="48" 
+height="48" stroke="#000" stroke-width="3">
+<path d="m7,5 34,38m0-38-34,38m38-16H3"/>
+<path fill="#FFF" d="m23,8a14,18 0 1,0 2,0zm.5,0v35m1,0V9"/>
+<path d="m12,21a12,12 0 0,1 24,0"/>
+</svg>
