@@ -5,7 +5,20 @@ import { LandingPageComponent } from "./components/landing-page/landing-page.com
 import { LoginComponent } from './components/login/login.component';
 
 const routes: Routes = [
-    { path: 'bugtracker', component: LandingPageComponent}
+    {
+        path: 'bugtracker',
+        component: LandingPageComponent,
+        children: [
+            {
+                path: 'login', component: LoginComponent
+            },
+            {
+                path: '', redirectTo: 'login', pathMatch: 'full'
+            }
+        ]
+    },
+
+    { path: 'bugtracker/login', component: LoginComponent, outlet: 'bug-outlet' }
 ];
 
 @NgModule({

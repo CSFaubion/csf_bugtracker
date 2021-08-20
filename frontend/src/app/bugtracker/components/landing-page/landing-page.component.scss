@@ -1,5 +1,17 @@
 .navbar {
     justify-content: space-between;
+    min-height: 50px;
+}
+
+.sidebar-content {
+    flex-grow: 1;
+    overflow: auto;
+}
+
+.content-wrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 span {
