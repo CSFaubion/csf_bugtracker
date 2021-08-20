@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { BugsComponent } from './components/bugs/bugs.component';
 
 import { LandingPageComponent } from "./components/landing-page/landing-page.component";
 import { LoginComponent } from './components/login/login.component';
@@ -9,6 +10,9 @@ const routes: Routes = [
         path: 'bugtracker',
         component: LandingPageComponent,
         children: [
+            {
+                path: 'bugs', component: BugsComponent
+            },
             {
                 path: 'login', component: LoginComponent
             },
