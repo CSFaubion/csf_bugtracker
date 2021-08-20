@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute, UrlSegment } from '@angular/router';
+import { take } from 'rxjs/operators';
 
 @Component({
   selector: 'app-sidenav-toggle-buttons',
@@ -9,16 +10,17 @@ import { Router } from '@angular/router';
 export class SidenavToggleButtonsComponent implements OnInit {
 
   public selectedVal: string;
-  constructor(private router: Router) { this.selectedVal = 'user' }
+  constructor(private router: Router, private route: ActivatedRoute) { this.selectedVal = 'login' }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.route.firstChild?.url.pipe(take(1)).subscribe((currUrl: UrlSegment[]) =>
+      this.selectedVal = currUrl[0].path)
+  }
 
   public onValChange(val: string) {
     let searchstring = 'bugtracker/' + val.trim()
-    console.log(searchstring)
     this.router.navigate([searchstring])
+    console.log(this.route.snapshot.url.join(''))
   }
-
-  //  <mat-button-toggle-group #group="matButtonToggleGroup" [value]="selectedVal" (change)="onValChange(group.value)" >
 
 }

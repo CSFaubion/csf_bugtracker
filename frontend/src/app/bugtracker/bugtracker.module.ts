@@ -8,9 +8,17 @@ import { LoginComponent } from './components/login/login.component';
 import { SidenavToggleButtonsComponent } from './components/sidenav-toggle-buttons/sidenav-toggle-buttons.component';
 import { LandingPageComponent } from './components';
 import { BugsComponent } from './components/bugs/bugs.component';
+import { UserManagementComponent } from './components/user-management/user-management.component';
+
 
 @NgModule({
-  declarations: [LoginComponent, LandingPageComponent, SidenavToggleButtonsComponent, BugsComponent],
+  declarations: [
+    LoginComponent, 
+    LandingPageComponent, 
+    SidenavToggleButtonsComponent, 
+    BugsComponent, 
+    UserManagementComponent
+  ],
   imports: [
     CommonModule,
     MaterialModule,
