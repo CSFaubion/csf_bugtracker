@@ -2,3 +2,10 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+// #TODO: replace this hack with something more appropriate
+.mat-button-toggle-checked {
+    background-color: #7b1fa2;
+    color: #fff;
+  }
