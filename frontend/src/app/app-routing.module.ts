@@ -4,7 +4,6 @@ import { BugtrackerModule } from './bugtracker/bugtracker.module';
 
 const routes: Routes = [
   {
-    // path: '', component: BugtrackerModule
     path: '', redirectTo: 'bugtracker', pathMatch: 'full'
   }
 ];
