@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { BugtrackerModule } from './bugtracker/bugtracker.module';
 
 const routes: Routes = [
   {
+    // path: '', component: BugtrackerModule
     path: '', redirectTo: 'bugtracker', pathMatch: 'full'
   }
 ];
