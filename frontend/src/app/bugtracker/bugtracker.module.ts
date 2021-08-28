@@ -9,20 +9,21 @@ import { SidenavToggleButtonsComponent } from './components/sidenav-toggle-butto
 import { LandingPageComponent } from './components';
 import { BugsComponent } from './components/bugs/bugs.component';
 import { UserManagementComponent } from './components/user-management/user-management.component';
-
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-    LoginComponent, 
-    LandingPageComponent, 
-    SidenavToggleButtonsComponent, 
-    BugsComponent, 
-    UserManagementComponent
+    LoginComponent,
+    LandingPageComponent,
+    SidenavToggleButtonsComponent,
+    BugsComponent,
+    UserManagementComponent,
   ],
   imports: [
     CommonModule,
     MaterialModule,
-    BugtrackerRoutingModule
-  ]
+    BugtrackerRoutingModule,
+    ReactiveFormsModule,
+  ],
 })
-export class BugtrackerModule { }
+export class BugtrackerModule {}
