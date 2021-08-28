@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { BugtrackerRoutingModule } from './bugtracker-routing.module';
 import { MaterialModule } from '../material/material.module';
@@ -9,7 +10,7 @@ import { SidenavToggleButtonsComponent } from './components/sidenav-toggle-butto
 import { LandingPageComponent } from './components';
 import { BugsComponent } from './components/bugs/bugs.component';
 import { UserManagementComponent } from './components/user-management/user-management.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { UserDetailComponent } from './components/user-detail/user-detail.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     SidenavToggleButtonsComponent,
     BugsComponent,
     UserManagementComponent,
+    UserDetailComponent,
   ],
   imports: [
     CommonModule,
