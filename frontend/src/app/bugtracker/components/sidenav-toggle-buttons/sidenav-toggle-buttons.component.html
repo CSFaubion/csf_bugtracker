@@ -1,12 +1,15 @@
-<mat-button-toggle-group color="primary" name="sidenav" aria-label="side navigation" vertical
-    [value]="selectedVal" (change)="onValChange(group.value)" #group="matButtonToggleGroup">
-    <mat-button-toggle value="login">
+<mat-button-toggle-group color="primary" name="sidenav" aria-label="side navigation" vertical [value]="selectedVal"
+    (click)="onClick(group.value)" #group="matButtonToggleGroup">
+    <mat-button-toggle value="login" *ngIf="!loggedIn">
+        <mat-icon [inline]="true">login</mat-icon>
+    </mat-button-toggle>
+    <mat-button-toggle value="user" *ngIf="loggedIn">
         <mat-icon [inline]="true">account_circle</mat-icon>
     </mat-button-toggle>
-    <mat-button-toggle value="bugs">
+    <mat-button-toggle value="bugs" *ngIf="loggedIn">
         <mat-icon [inline]="true">bug_report</mat-icon>
     </mat-button-toggle>
-    <mat-button-toggle value="user-management">
+    <mat-button-toggle value="user-management" *ngIf="loggedIn">
         <mat-icon [inline]="true">supervised_user_circle</mat-icon>
     </mat-button-toggle>
 </mat-button-toggle-group>

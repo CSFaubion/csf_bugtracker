@@ -1,0 +1,36 @@
+<mat-sidenav-container id="comp-container">
+    <mat-sidenav mode="side" closed></mat-sidenav>
+    <mat-sidenav-content>
+        <div id="outer-center-div">
+            <div id="centering-div">
+                <form id='user-form-group' [formGroup]="loginform" (ngSubmit)="onSubmit()">
+                    <mat-form-field appearance="fill" [floatLabel]="floatLabelControl.value">
+                        <mat-label>User Name</mat-label>
+                        <input matInput id='username' formControlName='username'>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="fill">
+                        <mat-label>Enter your password</mat-label>
+                        <input matInput [type]="hide ? 'password' : 'text'" id='password' formControlName='password'>
+                        <!-- i made the following element <div> instead of <button> to prevent 
+                                focus on enter keypress and form submission on click -->
+                        <div mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                            [attr.aria-pressed]="hide" (keydown.enter)="$event.preventDefault()">
+                            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </div>
+                    </mat-form-field>
+
+                    <button class="sub_button" id="login-button" mat-raised-button color="primary" type="submit"
+                        [disabled]="!loginform.valid">Login</button>
+                </form>
+
+                <button class="sub_button" id="testbutton" mat-raised-button (click)="onUserClick()">login as
+                    user</button>
+                <button class="sub_button" id="techbutton" mat-raised-button
+                    (click)="onTechClick()">login as tech</button>
+                <button class="sub_button" id="adminbuttton" mat-raised-button
+                    (click)="onAdminClick()">login as admin</button>
+            </div>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>

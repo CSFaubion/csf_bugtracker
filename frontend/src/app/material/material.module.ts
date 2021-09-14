@@ -18,6 +18,7 @@ const MaterialComponents = [
   MatButtonToggleModule,
   MatFormFieldModule,
   MatInputModule,
+  MatCardModule
 ];
 
 @NgModule({
