@@ -5,6 +5,7 @@ import {
   ActivatedRoute,
   UrlSegment,
   NavigationEnd,
+  NavigationCancel,
 } from '@angular/router';
 import { BehaviorSubject, interval, of, Subscription } from 'rxjs';
 import { filter, map, take } from 'rxjs/operators';
@@ -24,8 +25,7 @@ export class SidenavToggleButtonsComponent implements OnInit, OnDestroy {
   constructor(
     private login: LoginService,
     private router: Router,
-    private route: ActivatedRoute,
-    private location: Location
+    private route: ActivatedRoute
   ) {
     this.sub = null;
     this.currentRoute = new BehaviorSubject<string>('');
@@ -45,7 +45,7 @@ export class SidenavToggleButtonsComponent implements OnInit, OnDestroy {
       this.router.events
         .pipe(filter((e): e is NavigationEnd => e instanceof NavigationEnd))
         .subscribe((e) => {
-          let val = e.url.split('/').pop();
+          let val = e.urlAfterRedirects.split('/').pop();
           // if val is null the application probably navigated to '/' and relied
           //  on redirects to get where it was supposed to go. this should get
           //  the right path, but send a console warning anyway.
@@ -54,7 +54,9 @@ export class SidenavToggleButtonsComponent implements OnInit, OnDestroy {
             console.error(
               `SidenavToggleButtonsComponent got unexpected route.\n route value:${
                 e.url
-              }\n currentRoute set to: ${this.currentRoute.getValue()}`
+              }\n currentRoute set to: ${this.currentRoute.getValue()}\n url after redirect:${
+                e.urlAfterRedirects
+              }`
             );
           } else this.currentRoute.next(val ? val : '/');
         })
@@ -81,7 +83,7 @@ export class SidenavToggleButtonsComponent implements OnInit, OnDestroy {
       },
       (err) => {
         console.error(
-          `SidenavToggleButtonsComponent - getCurrentlyActiveChildRoute this.route.firstChild was likely null \n ${err}`
+          `SidenavToggleButtonsComponent - getCurrentlyActiveChildRoute() this.route.firstChild was likely null \n ${err}`
         );
       }
     );

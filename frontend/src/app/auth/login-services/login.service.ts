@@ -15,18 +15,12 @@ export class LoginService {
   authheader: HttpHeaders | null;
   redirectUrl: string | null;
   authenticated: BehaviorSubject<boolean>;
-  loggedIn: boolean;
 
   constructor(private http: HttpClient) {
     this.principal = null;
     this.authheader = null;
     this.redirectUrl = null;
-    this.loggedIn = false;
-
     this.authenticated = new BehaviorSubject<boolean>(false);
-    this.authenticated.subscribe({
-      next: (v) => this.loggedIn = v,
-    });
   }
 
   // use this function instead of checking properties. the properties will be
@@ -48,11 +42,9 @@ export class LoginService {
     this.http
       .get<UserPrinciple>(this.AUTH_API, { headers: this.authheader })
       .subscribe((response: UserPrinciple) => {
-        if (response['authenticated']) {
+        if (response['enabled']) {
           this.principal = response;
           this.authenticated.next(true);
-          // i think backend always returns '', but sanitize anyway.
-          this.principal.principal.password = '';
         }
         if (this.redirectUrl) {
           const url = this.redirectUrl;
@@ -61,7 +53,7 @@ export class LoginService {
         }
         return callback && callback();
       }, err => {
-        console.log('LoginService - there was an error in login()!\n', err);
+        console.warn('LoginService - there was an error in login()!\n', err);
       });
   }
 
@@ -79,7 +71,7 @@ export class LoginService {
       .subscribe((response: TestMessage) => {
         console.log(response);
       }, err => {
-        console.log('there was an error in test()!\n', err);
+        console.warn('there was an error in test()!\n', err);
       });
   }
 
@@ -98,7 +90,7 @@ export class LoginService {
       .subscribe((response: TestMessage) => {
         console.log(response);
       }, err => {
-        console.log('there was an error in securetest()!\n', err);
+        console.warn('there was an error in securetest()!\n', err);
       });
   }
 }

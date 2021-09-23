@@ -1,0 +1,10 @@
+-- version 1
+DROP TABLE action;
+
+DROP TABLE ticket;
+
+-- START SPRING SECURITY TABLES
+DROP TABLE authority;
+DROP TABLE user;
+
+-- END SPRING SECURITY TABLES
